@@ -1,0 +1,23 @@
+# Ignore Maven build output
+target/
+
+# Ignore Gradle build output (in case you ever switch)
+build/
+
+# Ignore IDE project files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore Eclipse project files
+.classpath
+.project
+.settings/
+
+# Ignore logs
+*.log
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
