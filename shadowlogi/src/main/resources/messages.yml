@@ -1,0 +1,86 @@
+# ------------------------------------------------------------------------------------------------------
+# ShadowLogin Plugin Messages
+# ------------------------------------------------------------------------------------------------------
+
+# GENERAL SETTINGS
+# These messages are used for general-purpose chat communication.
+# You can use standard Minecraft color codes (&1-&9, &a-&f) and hex color codes (&#RRGGBB).
+# Hex color codes are supported on Minecraft version 1.16 and above.
+
+# The prefix for all plugin messages sent in chat.
+prefix: "&#008EFF&lShadowLogin &8>> &7"
+
+# ------------------------------------------------------------------------------------------------------
+# COMMANDS
+# Messages for the /login and /register commands.
+# ------------------------------------------------------------------------------------------------------
+
+commands:
+  # The message sent when a player uses the /register command incorrectly.
+  register-usage: "&cUsage: /register <password> <confirm_password>"
+
+  # The message sent when a player uses the /login command incorrectly.
+  login-usage: "&cUsage: /login <password>"
+
+  # The message sent if the player tries to use an authentication command
+  # but is already logged in.
+  already-authenticated: "&aYou are already authenticated!"
+
+  # Message sent if the player's passwords do not match during registration.
+  passwords-do-not-match: "&cPasswords do not match!"
+
+  # Message sent if the player's password is too short.
+  password-too-short: "&cPassword must be at least 6 characters long."
+
+  # Message sent if the player provides an incorrect password during login.
+  incorrect-password: "&cIncorrect password!"
+
+# ------------------------------------------------------------------------------------------------------
+# AUTHENTICATION
+# Messages for successful and failed authentication attempts.
+# ------------------------------------------------------------------------------------------------------
+
+authentication:
+  # Message sent when a player successfully registers and logs in.
+  register-success: "&aYou have successfully registered and logged in!"
+
+  # Message sent when a player successfully logs in.
+  login-success: "&aYou have successfully logged in!"
+
+  # Message sent to a premium player who is automatically registered.
+  premium-auto-register: "&7You have been automatically registered as a premium player."
+
+  # Message sent to a premium player who is automatically logged in.
+  premium-auto-login: "&7You have been automatically logged in as a premium player."
+
+# ------------------------------------------------------------------------------------------------------
+# EVENTS & COUNTDOWN
+# Messages related to player events and the authentication timer.
+# ------------------------------------------------------------------------------------------------------
+
+player-events:
+  # The message shown to players who need to register.
+  # Use the %countdown% placeholder for the remaining time.
+  must-register: "&#FFFD00Please register using &e/register <password> <password>&7, you have &a%countdown%s&7 left."
+
+  # The message shown to players who need to log in.
+  # Use the %countdown% placeholder for the remaining time.
+  must-login: "&#FFFD00Please log in using &e/login <password>&7, you have &a%countdown%s&7 left."
+
+  # The message a player receives when their login/register countdown runs out.
+  timeout-kick: "&#FF0000Time is up! Please log in or register to play."
+
+# ------------------------------------------------------------------------------------------------------
+# ERRORS
+# Generic error messages.
+# ------------------------------------------------------------------------------------------------------
+
+errors:
+  # The message for commands that can only be run by a player.
+  not-a-player: "&cThis command can only be used by players."
+
+  # The message sent if a player tries to move while unauthenticated.
+  cannot-move: "&cYou cannot move until you log in!"
+
+  # The message sent if a configured world is not found.
+  world-not-found: "&cAn authentication world could not be found. Please contact an admin."

@@ -1,0 +1,29 @@
+name: ShadowLogin
+version: 1.0.0
+main: com.shadowmc.shadowlogin.ShadowLogin
+api-version: 1.16
+authors: ShadowMC
+description: A login/register plugin for Minecraft servers with premium and cracked player support.
+
+commands:
+  register:
+    description: Register your account.
+    usage: /register <password> <password>
+    permission: shadowlogin.command.register
+    permission-message: You do not have permission to use this command.
+  login:
+    description: Log in to your account.
+    usage: /login <password>
+    permission: shadowlogin.command.login
+    permission-message: You do not have permission to use this command.
+
+permissions:
+  shadowlogin.command.register:
+    description: Allows players to use the /register command.
+    default: true
+  shadowlogin.command.login:
+    description: Allows players to use the /login command.
+    default: true
+  shadowlogin.admin:
+    description: Grants all ShadowLogin administrative permissions.
+    default: op

@@ -1,0 +1,34 @@
+# ------------------------------------------------------------------------------------------------------
+# ShadowLogin Player Data
+# ------------------------------------------------------------------------------------------------------
+
+# WARNING: This is a flat file. For any public or production server,
+#          it is highly recommended to use a proper database (e.g., MySQL, SQLite)
+#          for security and performance reasons.
+
+# Each entry represents a player. The key is their UUID.
+players:
+  "f81c8100-3023-41a4-9665-27a961136b36":
+    # The name of the player. Useful for quick lookups.
+    name: "ExamplePlayer1"
+    # The hashed password. DO NOT STORE PASSWORDS IN PLAIN TEXT.
+    # This value should be a secure hash, such as BCrypt.
+    password_hash: "$2a$10$tJ0sXkS8b9T8N2Q1p6L5aO.cT72.1/7D"
+    # The date and time of their last login.
+    last_login: "2025-08-13 17:00:00"
+    # Indicates if the player is a premium (legit) account.
+    is_premium: false
+
+  "a2f267a1-8d2a-4c28-98e3-05995574c839":
+    name: "ExamplePlayer2"
+    password_hash: "$2a$10$wK0sXkS8b9T8N2Q1p6L5aO.cT72.1/7D"
+    last_login: "2025-08-12 12:30:00"
+    is_premium: false
+    
+  "f1d97f5a-3c4d-4e9f-8a0b-1f2e3d4c5b6a":
+    name: "PremiumPlayer"
+    # For a premium player, the password_hash might be "null" or "premium_auto"
+    # as they don't need a password to log in.
+    password_hash: "premium_auto"
+    last_login: "2025-08-13 16:45:00"
+    is_premium: true
