@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project Information -->
+    <groupId>com.shadowmc.shadowlogin</groupId>
+    <artifactId>ShadowLogin</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>ShadowLogin</name>
+    <description>A premium login and registration plugin for BungeeCord/Velocity networks.</description>
+
+    <!-- Project Properties -->
+    <properties>
+        <!-- The encoding for the project -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- The main class of your plugin -->
+        <main.class>com.shadowmc.shadowlogin.ShadowLogin</main.class>
+        <!-- Java version for compilation. Use 1.8 for older servers, 17 for newer ones. -->
+        <java.version>1.17</java.version>
+        <!-- Spigot/Paper API version -->
+        <spigot.version>1.20.4-R0.1-SNAPSHOT</spigot.version>
+        <!-- PlaceholderAPI version -->
+        <placeholderapi.version>2.11.5</placeholderapi.version>
+    </properties>
+
+    <!-- Plugin Repositories -->
+    <!-- These repositories host the dependencies needed for a Minecraft plugin. -->
+    <repositories>
+        <!-- SpigotMC repository for Spigot API -->
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <!-- PaperMC repository for Paper API (often a better choice) -->
+        <repository>
+            <id>papermc-repo</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <!-- JitPack repository for PlaceholderAPI and other community projects -->
+        <repository>
+            <id>jitpack-repo</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <!-- Plugin Dependencies -->
+    <!-- These are the libraries your plugin needs to compile. -->
+    <dependencies>
+        <!-- Spigot/Paper API dependency -->
+        <!-- The scope is 'provided' because the server already provides this library. -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>${spigot.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Optional: PlaceholderAPI dependency -->
+        <!-- Also 'provided' as it's an optional dependency on the server. -->
+        <dependency>
+            <groupId>com.github.PlaceholderAPI</groupId>
+            <artifactId>PlaceholderAPI</artifactId>
+            <version>${placeholderapi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- You would add other dependencies here, such as a database library (e.g., HikariCP) -->
+        <!-- <dependency> ... </dependency> -->
+    </dependencies>
+
+    <!-- Build Configuration -->
+    <build>
+        <!-- Resource filtering for plugin.yml -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Maven Shade Plugin -->
+            <!-- Used to create a final JAR with relocated dependencies, avoiding conflicts. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <minimizeJar>true</minimizeJar>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/maven/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <artifactSet>
+                                <includes>
+                                    <!-- List dependencies to include in the final JAR here. -->
+                                    <!-- For now, we don't have any, but this is where they would go. -->
+                                </includes>
+                            </artifactSet>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>${main.class}</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
