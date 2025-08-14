@@ -1,0 +1,91 @@
+# ------------------------------------------------------------------------------------------------------
+# ShadowLogin Plugin Configuration
+# ------------------------------------------------------------------------------------------------------
+
+# GENERAL SETTINGS
+# These settings control the core behavior and formatting of the plugin.
+#
+# Tip: You can use standard Minecraft color codes (&1-&9, &a-&f)
+# and hex color codes (&#RRGGBB) in all string values below.
+# Hex codes are only supported on Minecraft version 1.16 and above.
+
+# The prefix for all plugin messages sent in chat.
+prefix: "&#008EFF&lShadowLogin &8>> &7"
+
+# The world players are teleported to for registration/login.
+# This world should be a safe, protected area.
+auth-world: "auth"
+
+# The world players are teleported to after they successfully authenticate.
+# This is typically your main world or a hub.
+redirect-world: "world"
+
+# The time players have to register or log in before they are kicked.
+# Value is in seconds.
+login-countdown: 60
+register-countdown: 60
+
+# Kick messages sent to players for various reasons.
+kick-messages:
+  # The message a player receives when their login/register countdown runs out.
+  timeout-kick: "&#FF0000Time is up! Please log in or register to play."
+  # The message a player receives if the configured worlds are not found.
+  world-not-found: "&#FF0000An error occurred! Please contact a server administrator."
+
+# ------------------------------------------------------------------------------------------------------
+# TITLE MESSAGES (CRACKED/NON-PREMIUM PLAYERS)
+# These are the title and subtitle messages that appear on the player's screen.
+#
+# Tip: The PlaceholderAPI placeholders will be automatically replaced with the
+# remaining time if the PlaceholderAPI plugin is installed.
+# You can also use standard color codes and hex color codes here.
+# ------------------------------------------------------------------------------------------------------
+
+register-title:
+  # The main title displayed to players who need to register.
+  title: "&#008EFF&lS&#008EFF&lʜ&#008EFF&lᴏ&#008EFF&lᴅ&#008EFF&lᴏ&#008EFF&lᴡ&lM&#008EFF&lC"
+  # The subtitle displayed with the title. Use %shadowlogin_countdown% for the timer.
+  subtitle: "&#FFFD00Y&#FFFD00ᴏ&#FFFD00ᴜ &#FFFD00ʜ&#FFFD00ᴀ&#FFFD00ᴠ&#FFFD00ᴇ &a%shadowlogin_countdown%&7s&7, &#FFFD00T&#FFFD00ᴏ &#FFFD00ʀ&#FFFD00ᴇ&#FFFD00ɢ&#FFFD00ɪ&#FFFD00ѕ&#FFFD00ᴛ&#FFFD00ᴇ&#FFFD00ʀ"
+  # The duration of the title's fade-in, stay, and fade-out.
+  # Values are in server ticks (20 ticks = 1 second).
+  fadeIn: 10
+  stay: 70
+  fadeOut: 20
+
+login-title:
+  # The main title displayed to players who need to log in.
+  title: "&#00FF23&lL&#00FF23&lᴏ&#00FF23&lɢ&#00FF23&lɪ&#00FF23&lɴ"
+  # The subtitle displayed with the title. Use %shadowlogin_countdown% for the timer.
+  subtitle: "&#FFFD00Y&#FFFD00ᴏ&#FFFD00ᴜ &#FFFD00ʜ&#FFFD00ᴀ&#FFFD00ᴠ&#FFFD00ᴇ &a%shadowlogin_countdown%&7s&7, &#FFFD00T&#FFFD00ᴏ &#FFFD00ʟ&#FFFD00ᴏ&#FFFD00ɢ&#FFFD00ɪ&#00FF23&lɴ"
+  # The duration of the title's fade-in, stay, and fade-out.
+  # Values are in server ticks (20 ticks = 1 second).
+  fadeIn: 10
+  stay: 70
+  fadeOut: 20
+
+# ------------------------------------------------------------------------------------------------------
+# TITLE MESSAGES (PREMIUM PLAYERS)
+# These are the messages for players with an official Minecraft account (Mojang/Microsoft).
+# ------------------------------------------------------------------------------------------------------
+
+premium-register-title:
+  # The title for a premium player who is automatically registered.
+  title: "&#00FF0AY&#00FF0Aᴏ&#00FF0Aᴜ &#00FF0Aʜ&#00FF0Aᴀ&#00FF0Aᴠ&#00FF0Aᴇ &#00FF0Aʙ&#00FF0Aᴇ&#00FF0Aᴇ&#00FF0Aɴ &#00FF0Aᴀ&#00FF0Aᴜ&#00FF0Aᴛ&#00FF0Aᴏ&#00FF0Aᴍ&#00FF0Aᴀ&#00FF0Aᴛ&#00FF0Aɪ&#00FF0Aᴄ&#00FF0Aᴀ&#00FF0Aʟ&#00FF0Aʟ&#00FF0Aʏ &#00FF0Aʀ&#00FF0Aᴇ&#00FF0Aɢ&#00FF0Aɪ&#00FF0Aѕ&#00FF0Aᴛ&#00FF0Aᴇ&#00FF0Aʀ&#00FF0Aᴇ&#00FF0Aᴅ"
+  # The subtitle displayed with the title.
+  subtitle: "&7Welcome to the server."
+  # The duration of the title's fade-in, stay, and fade-out.
+  # Values are in server ticks (20 ticks = 1 second).
+  fadeIn: 10
+  stay: 70
+  fadeOut: 20
+
+premium-login-title:
+  # The title for a premium player who is automatically logged in.
+  title: "&#00FF0AY&#00FF0Aᴏ&#00FF0Aᴜ &#00FF0Aʜ&#00FF0Aᴀ&#00FF0Aᴠ&#00FF0Aᴇ &#00FF0Aʙ&#00FF0Aᴇ&#00FF0Aᴇ&#00FF0Aɴ &#00FF0Aᴀ&#00FF0Aᴜ&#00FF0Aᴛ&#00FF0Aᴏ&#00FF0Aᴍ&#00FF0Aᴀ&#00FF0Aᴛ&#00FF0Aɪ&#00FF0Aᴄ&#00FF0Aᴀ&#00FF0Aʟ&#00FF0Aʟ&#00FF0Aʏ &#00FF0Aʟ&#00FF0Aᴏ&#00FF0Aɢ&#00FF0Aɢ&#00FF0Aᴇ&#00FF0Aᴅ &#00FF0Aɪ&#00FF0Aɴ"
+  # The subtitle displayed with the title.
+  subtitle: "&7Enjoy your game."
+  # The duration of the title's fade-in, stay, and fade-out.
+  # Values are in server ticks (20 ticks = 1 second).
+  fadeIn: 10
+  stay: 70
+  fadeOut: 20
