@@ -14,17 +14,13 @@
 
     <!-- Project Properties -->
     <properties>
-        <!-- The encoding for the project -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- The main class of your plugin -->
         <main.class>com.shadowmc.shadowlogin.ShadowLogin</main.class>
-        <!-- Java version for compilation. Use 1.8 for older servers, 17 for newer ones. -->
-        <java.version>1.17</java.version>
-        <!-- Spigot/Paper API version -->
+        <java.version>11</java.version>
         <spigot.version>1.20.4-R0.1-SNAPSHOT</spigot.version>
-        <!-- PlaceholderAPI version -->
         <placeholderapi.version>2.11.5</placeholderapi.version>
     </properties>
+
 
     <!-- Plugin Repositories -->
     <!-- These repositories host the dependencies needed for a Minecraft plugin. -->
